@@ -12,11 +12,13 @@
     题解
     每层树从左到右打印，所以需要将节点的左右子树存起来，因为先进先出，所以用队列。
  */
+
 class TreeNode
 {
     var $val;
     var $left = NULL;
     var $right = NULL;
+
     function __construct($val)
     {
         $this->val = $val;
@@ -27,10 +29,8 @@ function PrintFromTopToBottom($root)
 {
     $queueVal = array();
     $queueNode = array();
-
     if ($root == NULL)
         return $queueVal;
-
     array_push($queueNode, $root);
     while (!empty($queueNode)) {
         $node = array_shift($queueNode);
@@ -40,7 +40,6 @@ function PrintFromTopToBottom($root)
             array_push($queueNode, $node->right);
         array_push($queueVal, $node->val);
     }
-
     var_dump($queueVal);
 }
 
