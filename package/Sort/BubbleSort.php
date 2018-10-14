@@ -21,36 +21,51 @@
 // +--------------------------------------------------------------------------
 
 /**
- * BubbleSort
- *
- * @param array $container
- * @return array
+冒泡排序算法的原理如下：
+比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+针对所有的元素重复以上的步骤，除了最后一个。
+持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较
  */
 function BubbleSort(array $container)
 {
+    $times = 0;
     $count = count($container);
     for ($j = 1; $j < $count; $j++) {
         for ($i = 0; $i < $count - $j; $i++) {
+            $times ++;
             if ($container[$i] > $container[$i + 1]) {
                 $temp = $container[$i];
                 $container[$i] = $container[$i + 1];
                 $container[$i + 1] = $temp;
             }
         }
+        var_dump($container);
     }
-    return $container;
+//    echo  $times;
+//    var_dump($container);
+//    return $container;
+}
+
+function getCount($n)
+{
+    $count = 0;
+    for($i=1;$i<=$n;$i++){
+        $count += $i;
+    }
+    echo $count;
 }
 
 // +--------------------------------------------------------------------------
 // | 方案测试    | php `this.php` || PHPStorm -> 右键 -> Run `this.php`
 // +--------------------------------------------------------------------------
 
-var_dump(BubbleSort([4, 21, 41, 2, 53, 1, 213, 31, 21, 423]));
-
+BubbleSort([423,4, 21, 41, 2, 53, 1, 213, 31, 21]);
+getCount(9);
 /*
 array(10) {
   [0] =>
-  int(1)
+  int(1)423
   [1] =>
   int(2)
   [2] =>
