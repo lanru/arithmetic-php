@@ -216,7 +216,7 @@ class Acm
     }
 
     public
-    function testHongRen()
+    function testHongRen($N,$M,$D)
     {
 //        print_r('请输入用户数:');
 //        fscanf(STDIN, '%d', $N);
@@ -227,9 +227,6 @@ class Acm
 //        print_r('请输入' . $M . '对关系,以,分离,每两个一对:');
 //        $D = fgets(STDIN, 4 * $M);
 //        $data = explode(' ', $D);
-        $N = 3;
-        $M = 3;
-        $D = "1 2 2 1 2 3";
         $data = explode(' ', $D);
 
         while (count($data) < 2 * $M) {
@@ -292,3 +289,8 @@ class Acm
         print_r("\n总人数为:$count");
     }
 }
+
+$N = 3;
+$M = 3;
+$D = "1 2 2 1 2 3";
+(new Acm())->testHongRen($N,$M,$D);
