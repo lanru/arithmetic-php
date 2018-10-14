@@ -11,16 +11,14 @@
  * 题解
  * 有几种解法。主要是使用substr函数。可以看出最终字符串分为两个部分，把这两部分拼接起来就可以。
  */
-class LeftRotateString
+function LeftRotateString($str, $n)
 {
-    static function cal($str, $n)
-    {
-        $len = strlen($str);
-        $str .= $str;
-        $re = substr($str, $n, $len);
-        echo $re;
-    }
+    $len = strlen($str);
+    $str .= $str;
+    $re = substr($str, $n, $len);
+    echo $re;
+
 }
 
 $str = "abcXYZdef";
-LeftRotateString::cal($str,3);
+LeftRotateString($str, 3);
