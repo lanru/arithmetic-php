@@ -20,14 +20,11 @@ class TestKeenSting
         $this->song_size = $s;
         $this->cd_size = $l;
     }
-
-
     public function run()
     {
         $cd_container = $this->calculate_single_cd();
         return ceil($this->song_num / $cd_container);
     }
-
     private function calculate_single_cd()
     {
         //假设一张cd可以放n个 song_length+1
@@ -43,7 +40,6 @@ class TestKeenSting
         return $n;
     }
 }
-
 
 $a = new TestKeenSting(7, 2, 6);
 $re = $a->run();
