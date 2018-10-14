@@ -20,7 +20,6 @@
 
 <p align="center"> <a href="./README-EN.md">English</a>　<p>
 
-> 每周最少一更，求出题，求虐待 At least once a week, ask for problems and abuse
 
 ## 简易结构
 
