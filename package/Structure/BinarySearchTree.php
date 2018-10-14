@@ -1,19 +1,23 @@
 <?php
+
 /**
  * 二叉搜索树
- * 
+ *
  * 二叉搜索树或者是一棵空树，或者是具有下列性质的二叉树：
  * 1.每个结点都有一个作为搜索依据的关键码(value)，所有结点的关键码互不相同。
  * 2.左子树（如果非空）上所有结点的关键码都小于根结点的关键码。
  * 3.右子树（如果非空）上所有结点的关键码都大于根结点的关键码。
  * 4.左子树和右子树也是二叉搜索树。
- * 
- * class Node {
- *  public $value;
- *  public $left = null;
- *  public $right = null;
- * }
+ *
+
  */
+class Node
+{
+    public $value;
+    public $left = null;
+    public $right = null;
+}
+
 class BinarySearchTree
 {
     /**
@@ -27,7 +31,7 @@ class BinarySearchTree
      */
     protected function createNode($data)
     {
-        $node = new stdClass();
+        $node = new Node();
         $node->value = $data;
         $node->left = null;
         $node->right = null;
@@ -42,8 +46,8 @@ class BinarySearchTree
      */
     public function insert(&$node, $value)
     {
-        if(empty($value) && $value !== 0) {
-            return ;
+        if (empty($value) && $value !== 0) {
+            return;
         }
 
         if ($node == null) {
@@ -61,22 +65,23 @@ class BinarySearchTree
      */
     public function preOrder(&$node)
     {
-       if ($node != null) {
-            echo $node->value . PHP_EOL ;
+        if ($node != null) {
+            echo $node->value . PHP_EOL;
             $this->preOrder($node->left);
             $this->preOrder($node->right);
         }
 
     }
+
     /**
      * 中序遍历
      * @param $node 根节点
      */
     public function middleOrder(&$node)
     {
-       if ($node != null) {
-           $this->middleOrder($node->left);
-            echo $node->value . PHP_EOL ;
+        if ($node != null) {
+            $this->middleOrder($node->left);
+            echo $node->value . PHP_EOL;
             $this->middleOrder($node->right);
         }
 
@@ -88,7 +93,7 @@ class BinarySearchTree
      */
     public function afterOrder(&$node)
     {
-       if ($node != null) {
+        if ($node != null) {
             $this->afterOrder($node->left);
             $this->afterOrder($node->right);
             echo $node->value . PHP_EOL;
@@ -99,14 +104,14 @@ class BinarySearchTree
      * 获取最大值
      * @param $node 根节点
      */
-    public function findMax(&$node) 
+    public function findMax(&$node)
     {
-        while($node->right != null) {
+        while ($node->right != null) {
             $node = $node->right;
         }
         return $node->value;
     }
-   
+
 }
 
 $tree = new BinarySearchTree();
@@ -115,7 +120,7 @@ $tree->insert($tree->root, 9);
 $tree->insert($tree->root, 2);
 $tree->insert($tree->root, 20);
 
-echo "先序遍历".PHP_EOL;
+echo "先序遍历" . PHP_EOL;
 $tree->preOrder($tree->root); //324
 echo "中序遍历" . PHP_EOL;
 
@@ -124,6 +129,6 @@ echo "后序遍历" . PHP_EOL;
 
 $tree->afterOrder($tree->root); //234
 
-$max = $tree->findMax($tree->root); 
+$max = $tree->findMax($tree->root);
 
 var_dump($max);
