@@ -51,6 +51,6 @@ function GetNumberOfK($data, $k)
     return $count - 1;
 }
 
-$data = [1, 2, 34, 5, 6, 7, 9];
+$data = [1, 2, 3, 5, 6, 7, 9];
 $count = GetNumberOfK($data, 5);
 echo $count;
