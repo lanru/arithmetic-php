@@ -95,6 +95,46 @@ class TestArray
         }
         $this->data[$index] = $e;
     }
+
+    public function contains($e)
+    {
+        for ($i = 0; $i < $this->size; $i++) {
+            if ($this->data[$i] == $e)
+                return true;
+        }
+        return false;
+    }
+
+    public function find($e)
+    {
+        for ($i = 0; $i < $this->size; $i++) {
+            if ($this->data[$i] == $e)
+                return $i;
+        }
+        return -1;
+    }
+
+    public function remove($index)
+    {
+        if ($index < 0 || $index >= $this->size) {
+            throw  new Exception("illegal");
+        }
+        $ret = $this->data[$index];
+        for ($i = $index + 1; $i < $this->size; $i++)
+            $this->data[$i - 1] = $this->data[$i];
+        $this->size--;
+        return $ret;
+    }
+
+    public function removeFirst()
+    {
+        return $this->remove(0);
+    }
+
+    public function removeLast()
+    {
+        return $this->remove($this->size - 1);
+    }
 }
 
 $array = new TestArray(5);
