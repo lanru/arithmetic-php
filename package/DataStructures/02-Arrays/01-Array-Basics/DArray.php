@@ -6,7 +6,7 @@
  * Date: 2018/10/22
  * Time: 11:00 PM
  */
-class TestArray
+class DArray
 {
     protected $data;
     protected $size;//最后一个有内容的位置
@@ -51,24 +51,13 @@ class TestArray
         $this->add(0, $e);
     }
 
-    protected function resize($newCapacity)
-    {
-        $newData = array_fill(0, $newCapacity, null);
-        for ($i = 0; $i < $this->size; $i++) {
-            $newData[$i] = $this->data[$i];
-        }
-        $this->data = $newData;
-        $newData = null;
-    }
-
     public function add($index, $e)
     {
+        if ($this->size == count($this->data))
+            throw  new Exception("ileggal");
         if ($index < 0 || $index > $this->size) {
             throw  new Exception("invalid parameter");
         }
-        if ($this->size == count($this->data))
-            $this->resize(2 * count($this->data));
-
         for ($i = $this->size - 1; $i >= $index; $i--) {
             $this->data[$i + 1] = $this->data[$i];
         }
@@ -82,9 +71,7 @@ class TestArray
         $result = "Array:size={$this->size},capacity={$capacity}\n";
         $result .= "[";
         for ($i = 0; $i < $this->size; $i++) {
-
             $result .= $this->data[$i];
-
             if ($i != $this->size - 1) {
                 $result .= ",";
             }
@@ -150,40 +137,12 @@ class TestArray
     }
 }
 
-class  Student
-{
-    protected $name;
-    protected $score;
-
-    function __construct($stu_name, $stu_score)
-    {
-        $this->name = $stu_name;
-        $this->score = $stu_score;
-    }
-
-    public function toString()
-    {
-        return "Studeng name:{$this->name},score:{$this->score}";
-    }
+$array = new DArray(20);
+for ($i = 0; $i < 10; $i++) {
+    $array->addLast($i);
 }
-
-//$array = new TestArray(20);
-//for ($i = 0; $i < 10; $i++) {
-//    $array->addLast($i);
-//}
-//$count = $array->getCapacity();
-//$array->addLast(100);
-//$array->addFirst(1);
-//$var = $array->toString();
-//echo $var;
-
-$arr = new TestArray(3);
-$stu1 = new Student("Alice", 100);
-$stu2 = new Student("Bob", 80);
-$stu3 = new Student("Charlie", 70);
-$stu4 = new Student("Jelly", 70);
-$arr->addLast($stu1);
-$arr->addLast($stu2);
-$arr->addLast($stu3);
-$arr->addLast($stu4);
-echo $arr;
+$count = $array->getCapacity();
+$array->addLast(100);
+$array->addFirst(1);
+$var = $array->toString();
+echo $var;
