@@ -137,9 +137,12 @@ class TestArray
     }
 }
 
-$array = new TestArray(5);
+$array = new TestArray(20);
+for ($i=0;$i<10;$i++){
+    $array->addLast($i);
+}
 $count = $array->getCapacity();
-$array->addLast(12);
+$array->addLast(100);
 $array->addFirst(1);
 $var = $array->toString();
 echo $var;
