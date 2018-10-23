@@ -79,6 +79,14 @@ class TestArray
         $result .= "]";
         return $result;
     }
+
+    public function get($index)
+    {
+        if ($index < 0 || $index >= $this->size) {
+            throw  new Exception("illegal");
+        }
+        return $this->data[$index];
+    }
 }
 
 $array = new TestArray(5);
