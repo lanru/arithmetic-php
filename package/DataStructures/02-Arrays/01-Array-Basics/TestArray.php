@@ -64,10 +64,26 @@ class TestArray
         $this->data[$index] = $e;
         $this->size++;
     }
+
+    public function toString()
+    {
+        $capacity = $this->getCapacity();
+        $result = "Array:size={$this->size},capacity={$capacity}\n";
+        $result .= "[";
+        for ($i = 0; $i < $this->size; $i++) {
+            $result .= $this->data[$i];
+            if ($i != $this->size - 1) {
+                $result .= ",";
+            }
+        }
+        $result .= "]";
+        return $result;
+    }
 }
 
 $array = new TestArray(5);
 $count = $array->getCapacity();
 $array->addLast(12);
 $array->addFirst(1);
-echo $array;
+$var = $array->toString();
+echo $var;
