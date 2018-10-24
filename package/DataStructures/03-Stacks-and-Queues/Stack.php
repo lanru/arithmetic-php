@@ -25,7 +25,7 @@ class ArrayStack implements stack
 {
     protected $array;
 
-    public function __construct($capacity)
+    public function __construct()
     {
         $this->array = new TestArray(10);
     }
@@ -63,14 +63,24 @@ class ArrayStack implements stack
 
     public function toString()
     {
+        $size = $this->array->getSize();
         $res = "Stack: [";
-        for ($i = 0; $i < $this->array->getSize(); $i++) {
+        for ($i = 0; $i < $size; $i++) {
             $res .= $this->array->get($i);
             if ($i != $this->array->getSize() - 1) {
                 $res .= ", ";
             }
         }
-        $res .= "] top";
+        $res .= "] top \n";
         return $res;
     }
 }
+
+$stack = new ArrayStack();
+for ($i = 0; $i < 5; $i++) {
+    $stack->push($i);
+    echo $stack->toString();
+}
+
+$stack->pop();
+echo $stack->toString();

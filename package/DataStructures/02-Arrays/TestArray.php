@@ -143,10 +143,12 @@ class TestArray
             throw  new Exception("illegal");
         }
         $ret = $this->data[$index];
-        for ($i = $index + 1; $i < $this->size; $i++)
+        for ($i = $index + 1; $i < $this->size; $i++) {
             $this->data[$i - 1] = $this->data[$i];
+        }
         $this->size--;
-        if ($this->size = count($this->data) / 2) {
+        $this->data[$this->size] = null;
+        if ($this->size == count($this->data) / 4) {
             $this->resize(count($this->data) / 2);
         }
         return $ret;
@@ -190,14 +192,14 @@ class  Student
 //$var = $array->toString();
 //echo $var;
 
-$arr = new TestArray(10);
-$stu1 = new Student("Alice", 100);
-$stu2 = new Student("Bob", 80);
-$stu3 = new Student("Charlie", 70);
-$stu4 = new Student("Jelly", 70);
-$arr->addLast($stu1);
-$arr->addLast($stu2);
-$arr->addLast($stu3);
-$arr->addLast($stu4);
-$arr->remove(2);
-echo $arr;
+//$arr = new TestArray(10);
+//$stu1 = new Student("Alice", 100);
+//$stu2 = new Student("Bob", 80);
+//$stu3 = new Student("Charlie", 70);
+//$stu4 = new Student("Jelly", 70);
+//$arr->addLast($stu1);
+//$arr->addLast($stu2);
+//$arr->addLast($stu3);
+//$arr->addLast($stu4);
+//$arr->remove(2);
+//echo $arr;
