@@ -109,6 +109,16 @@ class TestArray
         $this->data[$index] = $e;
     }
 
+    public function getLast()
+    {
+        return $this->get($this->size - 1);
+    }
+
+    public function getFirst()
+    {
+        return $this->get(0);
+    }
+
     public function contains($e)
     {
         for ($i = 0; $i < $this->size; $i++) {
