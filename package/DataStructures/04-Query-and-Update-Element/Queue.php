@@ -6,33 +6,35 @@
  * Date: 2018/10/22
  * Time: 11:00 PM
  */
+
 require_once "../02-Arrays/TestArray.php";
 
-interface  stack
+interface Queue
 {
     function getSize();
 
     function isEmpty();
 
-    function push($e);
+    function enqueue($e);
 
-    function pop();
+    function dequeue();
 
-    function peek();
+    function getFront();
 }
 
-class ArrayStack implements stack
+class ArrayQueue implements Queue
 {
     protected $array;
 
-    public function __construct()
+
+    // 构造函数，传入数组的容量capacity构造Array
+    function __construct($capacity)
     {
         $this->array = new TestArray(10);
     }
 
-    public function getSize()
+    function getSize()
     {
-        // TODO: Implement getSize() method.
         return $this->array->getSize();
     }
 
@@ -46,41 +48,35 @@ class ArrayStack implements stack
         return $this->array->getCapacity();
     }
 
-    public function push($e)
+    public function enqueue($e)
     {
         $this->array->addLast($e);
     }
 
-    public function pop()
+    public function dequeue()
     {
-        return $this->array->removeLast();
+        return $this->array->removeFirst();
     }
 
-    public function peek()
+    public function getFront()
     {
-        return $this->array->getLast();
+        return $this->array->getFirst();
     }
 
     public function toString()
     {
         $size = $this->array->getSize();
-        $res = "Stack: [";
+        $res = "Queue: front [";
         for ($i = 0; $i < $size; $i++) {
             $res .= $this->array->get($i);
             if ($i != $this->array->getSize() - 1) {
                 $res .= ", ";
             }
         }
-        $res .= "] top \n";
+        $res .= "] tail \n";
         return $res;
     }
 }
 
-//$stack = new ArrayStack();
-//for ($i = 0; $i < 5; $i++) {
-//    $stack->push($i);
-//    echo $stack->toString();
-//}
-//
-//$stack->pop();
-//echo $stack->toString();
+
+
