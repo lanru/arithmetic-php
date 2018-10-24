@@ -75,6 +75,7 @@ class LoopQueue implements Queue
         $length = $this->getLength();
         if (($this->tail + 1) % $length == $this->front) {
             $this->resize($this->getCapacity() * 2);
+            $length = $this->getLength(); //重新计算了
         }
         $this->data[$this->tail] = $e;
         $this->tail = ($this->tail + 1) % $length;
