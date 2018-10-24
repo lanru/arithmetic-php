@@ -31,9 +31,9 @@ class LoopQueue implements Queue
         $capacity_new = $capacity + 1;
         $this->data = array_fill(0, $capacity_new,
             null);
-        $this->front = 0;
-        $this->tail = 0;
-        $this->size = 0;
+        $this->front = 0;   //队列中第一个元素
+        $this->tail = 0;    //队列中最后一个元素
+        $this->size = 0;    //队列中非元素个数
     }
 
     public function getCapacity()
