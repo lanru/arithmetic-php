@@ -91,7 +91,7 @@ class LoopQueue implements Queue
         $this->data[$this->front] = null;
         $this->front = ($this->front + 1) % $length;
         $this->size--;
-        if ($this->size == $this->getCapacity() / 4 && $this->getCapacity() / 2 != 0) {
+        if ($this->size < ($this->getCapacity() / 4) && $this->getCapacity() / 2 != 0) {
             $this->resize($this->getCapacity() / 2);
         }
         return $ret;
