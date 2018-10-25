@@ -110,6 +110,32 @@ class LinkedList
         $cur->e = $e;
     }
 
+    public function remove($index)
+    {
+        if ($index < 0 || $index >= $this->size) {
+            throw  new Exception("illegal");
+        }
+        $prev = $this->dummyHead;
+        for ($i = 0; $i < $index; $i++) {
+            $prev = $prev->next;
+        }
+        $retNode = $prev->next;
+        $prev->next = $retNode->next;
+        $retNode->next = null;
+        $this->size--;
+        return $retNode->e;
+    }
+
+    public function removeFirst()
+    {
+        return $this->remove(0);
+    }
+
+    public function removeLast()
+    {
+        return $this->remove($this->size - 1);
+    }
+
     // 查找链表中是否有元素e
     public function contains($e)
     {
