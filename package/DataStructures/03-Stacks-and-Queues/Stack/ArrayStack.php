@@ -1,27 +1,13 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: wlh
- * Date: 2018/10/22
- * Time: 11:00 PM
+ * Date: 2018/10/26
+ * Time: 12:09 AM
  */
-require_once "../02-Arrays/TestArray.php";
+require_once "../../02-Arrays/TestArray.php";
 
-interface  stack
-{
-    function getSize();
-
-    function isEmpty();
-
-    function push($e);
-
-    function pop();
-
-    function peek();
-}
-
-class ArrayStack implements stack
+class ArrayStack
 {
     protected $array;
 
@@ -75,12 +61,3 @@ class ArrayStack implements stack
         return $res;
     }
 }
-
-//$stack = new ArrayStack();
-//for ($i = 0; $i < 5; $i++) {
-//    $stack->push($i);
-//    echo $stack->toString();
-//}
-//
-//$stack->pop();
-//echo $stack->toString();
