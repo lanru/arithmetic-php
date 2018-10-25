@@ -6,18 +6,7 @@
  * Date: 2018/10/24
  * Time: 10:31 PM
  */
-interface Queue
-{
-    function getSize();
-
-    function isEmpty();
-
-    function enqueue($e);
-
-    function dequeue();
-
-    function getFront();
-}
+require_once "Queue.php";
 
 class LoopQueue implements Queue
 {
@@ -123,14 +112,14 @@ class LoopQueue implements Queue
     }
 }
 
-$queue = new LoopQueue(10);
-for ($i = 0; $i < 10; $i++) {
-    $queue->enqueue($i);
-    $str = $queue->toString();
-    echo $str;
-    if ($i % 3 == 2) {
-        $queue->dequeue();
-        $str = $queue->toString();
-        echo $str;
-    }
-}
+//$queue = new LoopQueue(10);
+//for ($i = 0; $i < 10; $i++) {
+//    $queue->enqueue($i);
+//    $str = $queue->toString();
+//    echo $str;
+//    if ($i % 3 == 2) {
+//        $queue->dequeue();
+//        $str = $queue->toString();
+//        echo $str;
+//    }
+//}
