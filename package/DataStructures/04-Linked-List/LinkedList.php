@@ -19,7 +19,7 @@ class Node
 
     public function __toString()
     {
-        $str = "value:{$this->e}";
+        $str = "{$this->e}";
         return $str;
     }
 }
@@ -100,6 +100,38 @@ class LinkedList
     // 在链表中不是一个常用的操作，练习用
     public function set($index, $e)
     {
+        if ($index < 0 || $index >= $this->size) {
+            throw  new Exception("illegal");
+        }
+        $cur = $this->dummyHead->next;
+        for ($i = 0; $i < $index; $i++) {
+            $cur = $cur->next;
+        }
+        $cur->e = $e;
+    }
 
+    // 查找链表中是否有元素e
+    public function contains($e)
+    {
+        $cur = $this->dummyHead->next;
+        while ($cur != null) {
+            if ($cur->e == $e) {
+                return true;
+            }
+            $cur = $cur->next;
+        }
+        return false;
+    }
+
+    public function __toString()
+    {
+        $cur = $this->dummyHead->next;
+        $str = "";
+        while ($cur != null) {
+            $str .= $cur . "->";
+            $cur = $cur->next;
+        }
+        $str .= "NULL\n";
+        return $str;
     }
 }
