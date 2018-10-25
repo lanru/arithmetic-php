@@ -31,7 +31,7 @@ class LinkedList
 
     public function __construct()
     {
-        $this->head = null;
+        $this->head = new Node(null, null);
         $this->size = 0;
     }
 
@@ -75,6 +75,6 @@ class LinkedList
 
     public function addLast($e)
     {
-        $this->add($this->size,$e);
+        $this->add($this->size, $e);
     }
 }
