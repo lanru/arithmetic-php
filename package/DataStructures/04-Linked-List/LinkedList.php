@@ -95,4 +95,11 @@ class LinkedList
     {
         return $this->get($this->size - 1);
     }
+
+    // 修改链表的第index(0~based)个位置的元素为e
+    // 在链表中不是一个常用的操作，练习用
+    public function set($index, $e)
+    {
+
+    }
 }
