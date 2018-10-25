@@ -26,5 +26,31 @@ class Node
 
 class LinkedList
 {
+    protected $head;
+    protected $size;
 
+    public function __construct()
+    {
+        $this->head = null;
+        $this->size = 0;
+    }
+
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    public function isEmpty()
+    {
+        return $this->size == 0;
+    }
+
+    // 在链表头添加元素e
+    public function addFirst($e)
+    {
+        $node = new Node($e);
+        $node->next = $this->head;
+        $this->head = $node;
+        $this->size++;
+    }
 }
