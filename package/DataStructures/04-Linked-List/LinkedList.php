@@ -26,12 +26,12 @@ class Node
 
 class LinkedList
 {
-    protected $head;
+    protected $dummyHead;
     protected $size;
 
     public function __construct()
     {
-        $this->head = new Node(null, null);
+        $this->dummyHead = new Node(null, null);
         $this->size = 0;
     }
 
@@ -50,7 +50,7 @@ class LinkedList
     {
         $node = new Node($e);
         $node->next = $this->head;
-        $this->head = $node;
+        $this->dummyHead = $node;
         $this->size++;
     }
 
@@ -59,18 +59,14 @@ class LinkedList
         if ($index < 0 || $index > $this->size) {
             throw  new Exception("Add failed,Illegal index");
         }
-        if ($index == 0) {
-            $this->addFirst($e);
-        } else {
-            $prev = $this->head;
-            for ($i = 0; $i < $index - 1; $i++) {
-                $prev = $prev->next;
-            }
-            $node = new Node($e);
-            $node->next = $prev->next;
-            $prev->next = $node;
-            $this->size++;
+        $prev = $this->dummyHead;
+        for ($i = 0; $i < $index - 1; $i++) {
+            $prev = $prev->next;
         }
+        $node = new Node($e);
+        $node->next = $prev->next;
+        $prev->next = $node;
+        $this->size++;
     }
 
     public function addLast($e)
