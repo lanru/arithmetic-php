@@ -71,6 +71,10 @@ class LoopQueue implements Queue
         $this->size++;
     }
 
+
+    /*
+     * 
+     */
     public function dequeue()
     {
         $length = $this->getLength();
