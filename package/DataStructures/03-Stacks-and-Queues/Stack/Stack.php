@@ -7,7 +7,6 @@
  * Time: 11:00 PM
  */
 
-
 interface  stack
 {
     function getSize();
