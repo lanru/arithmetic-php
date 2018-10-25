@@ -53,4 +53,28 @@ class LinkedList
         $this->head = $node;
         $this->size++;
     }
+
+    public function add($index, $e)
+    {
+        if ($index < 0 || $index > $this->size) {
+            throw  new Exception("Add failed,Illegal index");
+        }
+        if ($index == 0) {
+            $this->addFirst($e);
+        } else {
+            $prev = $this->head;
+            for ($i = 0; $i < $index - 1; $i++) {
+                $prev = $prev->next;
+            }
+            $node = new Node($e);
+            $node->next = $prev->next;
+            $prev->next = $node;
+            $this->size++;
+        }
+    }
+
+    public function addLast($e)
+    {
+        $this->add($this->size,$e);
+    }
 }
