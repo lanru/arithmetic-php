@@ -14,3 +14,12 @@ for ($i = 0; $i < 5; $i++) {
 
 $link->add(2, 666);
 echo $link;
+
+$link->remove(2);
+echo $link;
+
+$link->removeFirst();
+echo $link;
+
+$link->removeLast();
+echo $link;
