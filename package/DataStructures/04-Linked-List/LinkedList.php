@@ -48,10 +48,7 @@ class LinkedList
     // 在链表头添加元素e
     public function addFirst($e)
     {
-        $node = new Node($e);
-        $node->next = $this->head;
-        $this->dummyHead = $node;
-        $this->size++;
+        $this->add(0, $e);
     }
 
     public function add($index, $e)
@@ -72,5 +69,30 @@ class LinkedList
     public function addLast($e)
     {
         $this->add($this->size, $e);
+    }
+
+    // 获取链表第index(0~based)个位置的元素
+    // 在链表中不是一个常用的操作，练习用:
+    public function get($index)
+    {
+        if ($index < 0 || $index >= $this->size) {
+            throw  new Exception("异常操作");
+        }
+        $cur = $this->dummyHead->next;
+        for ($i = 0; $i < $index; $i++) {
+            $cur = $cur->next;
+        }
+        return $cur->e;
+    }
+
+    // 获得链表的第一个元素
+    public function getFirst()
+    {
+        return $this->get(0);
+    }
+
+    public function getLast()
+    {
+        return $this->get($this->size - 1);
     }
 }
