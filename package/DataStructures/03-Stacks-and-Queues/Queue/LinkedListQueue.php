@@ -6,6 +6,7 @@
  * Time: 10:06 PM
  */
 require_once "../Node.php";
+require_once "./Queue.php";
 
 class LinkedListQueue implements Queue
 {
@@ -71,10 +72,20 @@ class LinkedListQueue implements Queue
         $res = "Queue: front ";
         $cur = $this->head;
         while ($cur != null) {
-            $res.="->";
+            $res .= $cur . "->";
             $cur = $cur->next;
         }
         $res .= "NULL tail \n";
         return $res;
+    }
+}
+
+$queue = new LinkedListQueue(10);
+for ($i = 0; $i < 10; $i++) {
+    $queue->enqueue($i);
+    echo $queue;
+    if ($i % 3 == 2) {
+        $queue->dequeue();
+        echo $queue;
     }
 }
