@@ -58,5 +58,23 @@ class LinkedListQueue implements Queue
         return $retNode->e;
     }
 
+    function getFront()
+    {
+        if ($this->isEmpty()) {
+            throw  new Exception("empty");
+        }
+        return $this->head->e;
+    }
 
+    public function __toString()
+    {
+        $res = "Queue: front ";
+        $cur = $this->head;
+        while ($cur != null) {
+            $res.="->";
+            $cur = $cur->next;
+        }
+        $res .= "NULL tail \n";
+        return $res;
+    }
 }
