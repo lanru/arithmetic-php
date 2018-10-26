@@ -35,7 +35,7 @@ class LinkedListQueue implements Queue
     function enqueue($e)
     {
         if ($this->tail == null) {
-            $this->tail = new Node();
+            $this->tail = new Node($e);
             $this->head = $this->tail;
         } else {
             $this->tail->next = new Node($e);
