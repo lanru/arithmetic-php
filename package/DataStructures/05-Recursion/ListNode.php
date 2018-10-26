@@ -65,3 +65,6 @@ $nums = [1, 2, 6, 3, 4, 5, 6];
 $head = new ListNode(1);
 $head->init($nums);
 echo $head;
+
+$res = removeEle($head, 6);
+echo $res;
