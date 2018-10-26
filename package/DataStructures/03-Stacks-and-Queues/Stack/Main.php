@@ -7,11 +7,12 @@
  */
 
 require_once "ArrayStack.php";
-$stack = new ArrayStack();
+require_once "LinkedListStack.php";
+$stack = new LinkedListStack();
 for ($i = 0; $i < 5; $i++) {
     $stack->push($i);
-    echo $stack->toString();
+    echo $stack;
 }
 
 $stack->pop();
-echo $stack->toString();
+echo $stack;

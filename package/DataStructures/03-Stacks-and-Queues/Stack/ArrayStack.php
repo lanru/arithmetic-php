@@ -47,7 +47,7 @@ class ArrayStack
         return $this->array->getLast();
     }
 
-    public function toString()
+    public function __toString()
     {
         $size = $this->array->getSize();
         $res = "Stack: [";
