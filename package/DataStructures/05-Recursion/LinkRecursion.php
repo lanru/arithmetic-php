@@ -44,7 +44,7 @@ class ListNode
 
 
 /*
- * PHP7新特性  类型
+ * PHP7新特性  标量类型声明
  * 可空返回类型
  */
 function removeEleByRecursion(?ListNode $head, $val): ?ListNode
