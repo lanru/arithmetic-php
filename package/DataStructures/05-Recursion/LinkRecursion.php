@@ -42,7 +42,12 @@ class ListNode
     }
 }
 
-function removeEleByRecursion($head, $val)
+
+/*
+ * PHP7新特性  类型
+ * 可空返回类型
+ */
+function removeEleByRecursion(?ListNode $head, $val): ?ListNode
 {
     if ($head == null) {
         return null;
