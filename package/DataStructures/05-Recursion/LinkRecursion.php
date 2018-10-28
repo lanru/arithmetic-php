@@ -52,13 +52,15 @@ function removeEleByRecursion(?ListNode $head, $val): ?ListNode
     if ($head == null) {
         return null;
     }
-    $res = removeEleByRecursion($head->next, $val);
-    if ($head->val == $val) {
-        return $res;
-    } else {
-        $head->next = $res;
-        return $head;
-    }
+//    $res = removeEleByRecursion($head->next, $val);
+//    if ($head->val == $val) {
+//        return $res;
+//    } else {
+//        $head->next = $res;
+//        return $head;
+//    }
+    $head->next = removeEleByRecursion($head->next, $val);
+    return $head->val == $val ? $head->next : $head;
 }
 
 function removeEle(ListNode $head, $val)
