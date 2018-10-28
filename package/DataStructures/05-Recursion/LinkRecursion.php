@@ -82,10 +82,10 @@ function removeEle(ListNode $head, $val)
     return $head;
 }
 
-$nums = [1, 2, 6, 3, 4, 5, 6];
+$nums = [6,7,8];
 $head = new ListNode(1);
 $head->init($nums);
 echo $head;
 
-$res = removeEleByRecursion($head, 6);
+$res = removeEleByRecursion($head, 7);
 echo $res;
