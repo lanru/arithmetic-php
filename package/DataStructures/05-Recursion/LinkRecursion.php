@@ -47,10 +47,18 @@ class ListNode
  * PHP7新特性  标量类型声明
  * 可空返回类型
  */
-function removeEleByRecursion(?ListNode $head, $val): ?ListNode
+function removeElements(?ListNode $head, $val, $depth): ?ListNode
 {
+
+    $depthString = generateDepthString($depth);
+    echo $depthString;
+    $str = "Call:remove " . $val . " in " . ($head ?? "null");
+    echo $str;
     if ($head == null) {
-        return null;
+        echo "\n";
+        echo $depthString;
+        echo "Return: " . ($head ?? "null") . "\n";
+        return $head;
     }
 //    $res = removeEleByRecursion($head->next, $val);
 //    if ($head->val == $val) {
@@ -59,8 +67,28 @@ function removeEleByRecursion(?ListNode $head, $val): ?ListNode
 //        $head->next = $res;
 //        return $head;
 //    }
-    $head->next = removeEleByRecursion($head->next, $val);
-    return $head->val == $val ? $head->next : $head;
+    $res = $head->next = removeElements($head->next, $val, $depth + 1);
+    echo $depthString;
+    echo "After remove " . $val . ":" . ($res ?? "null");
+    $ret = null;
+    if ($head->val == $val) {
+        $ret = $res;
+    } else {
+        $head->next = $res;
+        $ret = $head;
+    }
+    echo $depthString;
+    echo "\nReturn: " . $ret;
+    return $ret;
+}
+
+function generateDepthString(?int $depth)
+{
+    $res = "";
+    for ($i = 0; $i < $depth; $i++) {
+        $res .= "--";
+    }
+    return $res;
 }
 
 function removeEle(ListNode $head, $val)
@@ -82,10 +110,10 @@ function removeEle(ListNode $head, $val)
     return $head;
 }
 
-$nums = [6,7,8];
+$nums = [6, 7, 8];
 $head = new ListNode(1);
 $head->init($nums);
 echo $head;
 
-$res = removeEleByRecursion($head, 7);
+$res = removeElements($head, 7, 0);
 echo $res;
