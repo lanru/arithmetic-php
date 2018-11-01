@@ -65,4 +65,21 @@ class BST
             return $this->contains1($node->right, $e);
         }
     }
+
+    // 二分搜索树的前序遍历
+    public function preOrder()
+    {
+        $this->preOrder1($this->root);
+    }
+
+    //前序遍历以node为根的二分搜索树，递归算法
+    private function preOrder1(?Node $node)
+    {
+        if ($node == null) {
+            return;
+        }
+        echo $node->e . "\n";
+        $this->preOrder1($node->left);
+        $this->preOrder1($node->right);
+    }
 }
