@@ -5,8 +5,10 @@
  * Date: 2018/11/1
  * Time: 10:28 PM
  */
-require_once "./Node.php";
-require_once __DIR__."/../03-Stacks-and-Queues/Stack/ArrayStack.php";
+
+require_once __DIR__ . "/BSTNode.php";
+require_once __DIR__ . "/../03-Stacks-and-Queues/Stack/ArrayStack.php";
+require_once __DIR__ . "/../04-Linked-List/LinkedList.php";
 
 class BST
 {
@@ -34,11 +36,11 @@ class BST
         $this->root = $this->add1($this->root, $e);
     }
 
-    private function add1(?Node $node, int $e)
+    private function add1(?BSTNode $node, int $e)
     {
         if ($node == null) {
             $this->size++;
-            return new Node($e);
+            return new BSTNode($e);
         }
         if ($e < $node->e) {
             $node->left = $this->add1($node->left, $e);
@@ -53,7 +55,7 @@ class BST
         return $this->contains1($this->root, $e);
     }
 
-    private function contains1(?Node $node, $e)
+    private function contains1(?BSTNode $node, $e)
     {
         if ($node == null) {
             return false;
@@ -94,7 +96,7 @@ class BST
         $this->postOrder1($this->root);
     }
 
-    private function postOrder1(?Node $node)
+    private function postOrder1(?BSTNode $node)
     {
         if ($node == null)
             return;
@@ -103,12 +105,28 @@ class BST
         echo $node->e . "\n";
     }
 
+    public function levelOrder()
+    {
+        $q = new LinkedList();
+        $q->addFirst($this->root);
+        while (!$q->isEmpty()) {
+            $cur = $q->remove(0);
+            echo $cur . "\n";
+            if ($cur->left != null) {
+                $q->addLast($cur->left);
+            }
+            if ($cur->right != null) {
+                $q->addLast($cur->right);
+            }
+        }
+    }
+
     public function inOrder()
     {
         $this->inOrder1($this->root);
     }
 
-    private function inOrder1(?Node $node)
+    private function inOrder1(?BSTNode $node)
     {
         if ($node == null) {
             return;
@@ -119,7 +137,7 @@ class BST
     }
 
     //前序遍历以node为根的二分搜索树，递归算法
-    private function preOrder1(?Node $node)
+    private function preOrder1(?BSTNode $node)
     {
         if ($node == null) {
             return;
@@ -137,7 +155,7 @@ class BST
     }
 
 
-    private function generateBSTString(?Node $node, ?int $depth, ?string &$res)
+    private function generateBSTString(?BSTNode $node, ?int $depth, ?string &$res)
     {
         if ($node == null) {
             $res .= $this->generateDepthString($depth) . "null \n";

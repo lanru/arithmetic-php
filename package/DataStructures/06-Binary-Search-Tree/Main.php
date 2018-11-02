@@ -31,4 +31,6 @@ for ($i = 0; $i < count($nums); $i++) {
 //后续遍历
 //$bst->postOrder();
 //非递归前序遍历
-$bst->preOrderNR();
+//$bst->preOrderNR();
+//层序遍历
+$bst->levelOrder();

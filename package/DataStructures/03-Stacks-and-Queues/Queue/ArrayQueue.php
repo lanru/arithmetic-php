@@ -50,7 +50,7 @@ class ArrayQueue implements Queue
         return $this->array->getFirst();
     }
 
-    public function toString()
+    public function __toString()
     {
         $size = $this->array->getSize();
         $res = "Queue: front [";

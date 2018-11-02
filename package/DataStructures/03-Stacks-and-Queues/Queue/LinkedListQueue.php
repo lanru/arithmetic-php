@@ -5,8 +5,8 @@
  * Date: 2018/10/26
  * Time: 10:06 PM
  */
-require_once "../Node.php";
-require_once "./Queue.php";
+require_once __DIR__ . "/../Node.php";
+require_once __DIR__ . "/./Queue.php";
 
 class LinkedListQueue implements Queue
 {
@@ -80,12 +80,12 @@ class LinkedListQueue implements Queue
     }
 }
 
-$queue = new LinkedListQueue(10);
-for ($i = 0; $i < 10; $i++) {
-    $queue->enqueue($i);
-    echo $queue;
-    if ($i % 3 == 2) {
-        $queue->dequeue();
-        echo $queue;
-    }
-}
+//$queue = new LinkedListQueue(10);
+//for ($i = 0; $i < 10; $i++) {
+//    $queue->enqueue($i);
+//    echo $queue;
+//    if ($i % 3 == 2) {
+//        $queue->dequeue();
+//        echo $queue;
+//    }
+//}

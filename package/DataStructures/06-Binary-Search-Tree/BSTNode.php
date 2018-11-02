@@ -6,7 +6,7 @@
  * Time: 10:13 PM
  */
 
-class Node
+class BSTNode
 {
     public $e;
     public $left, $right;
