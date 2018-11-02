@@ -15,3 +15,5 @@ for ($i = 0; $i < count($nums); $i++) {
 }
 
 $bst->preOrder();
+echo "\n";
+echo $bst;

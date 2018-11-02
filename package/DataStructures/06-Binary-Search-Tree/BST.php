@@ -82,4 +82,32 @@ class BST
         $this->preOrder1($node->left);
         $this->preOrder1($node->right);
     }
+
+    public function __toString()
+    {
+        $res = "";
+        $this->generateBSTString($this->root, 0, $res);
+        return $res;
+    }
+
+
+    private function generateBSTString(?Node $node, ?int $depth, ?string &$res)
+    {
+        if ($node == null) {
+            $res .= $this->generateDepthString($depth) . "null \n";
+            return;
+        }
+        $res .= $this->generateDepthString($depth) . $node->e . "\n";
+        $this->generateBSTString($node->left, $depth + 1, $res);
+        $this->generateBSTString($node->right, $depth + 1, $res);
+    }
+
+    private function generateDepthString(?int $depth)
+    {
+        $res = "";
+        for ($i = 0; $i < $depth; $i++) {
+            $res .= "--";
+        }
+        return $res;
+    }
 }
