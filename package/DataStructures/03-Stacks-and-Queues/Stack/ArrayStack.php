@@ -5,7 +5,8 @@
  * Date: 2018/10/26
  * Time: 12:09 AM
  */
-require_once "../../02-Arrays/TestArray.php";
+
+require_once __DIR__."/../../02-Arrays/TestArray.php";
 
 class ArrayStack
 {

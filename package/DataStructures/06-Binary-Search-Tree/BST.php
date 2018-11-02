@@ -6,6 +6,8 @@
  * Time: 10:28 PM
  */
 require_once "./Node.php";
+require_once "../02-Arrays/TestArray.php";
+require_once "../03-Stacks-and-Queues/Stack/ArrayStack.php";
 
 class BST
 {
@@ -70,6 +72,22 @@ class BST
     public function preOrder()
     {
         $this->preOrder1($this->root);
+    }
+
+    public function preOrderNR()
+    {
+        $stack = new ArrayStack();
+        $stack->push($this->root);
+        while (!$stack->isEmpty()) {
+            $cur = $stack->pop();
+            echo $cur->e . "\n";
+            if ($cur->right != null) {
+                $stack->push($cur->right);
+            }
+            if ($cur->left != null) {
+                $stack->push($cur->left);
+            }
+        }
     }
 
     public function postOrder()

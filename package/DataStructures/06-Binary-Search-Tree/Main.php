@@ -10,6 +10,12 @@ require_once "./BST.php";
 
 $bst = new BST();
 $nums = [5, 3, 6, 8, 4, 2];
+//
+//     5
+//   3   6
+// 2  4   8
+//
+
 for ($i = 0; $i < count($nums); $i++) {
     $bst->add($nums[$i]);
 }
@@ -23,4 +29,6 @@ for ($i = 0; $i < count($nums); $i++) {
 //$bst->inOrder();
 
 //后续遍历
-$bst->postOrder();
+//$bst->postOrder();
+//非递归前序遍历
+$bst->preOrderNR();
