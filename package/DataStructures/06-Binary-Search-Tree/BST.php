@@ -72,6 +72,21 @@ class BST
         $this->preOrder1($this->root);
     }
 
+    public function inOrder()
+    {
+        $this->inOrder1($this->root);
+    }
+
+    private function inOrder1(?Node $node)
+    {
+        if ($node == null) {
+            return;
+        }
+        $this->inOrder1($node->left);
+        echo $node->e . "\n";
+        $this->inOrder1($node->right);
+    }
+
     //前序遍历以node为根的二分搜索树，递归算法
     private function preOrder1(?Node $node)
     {

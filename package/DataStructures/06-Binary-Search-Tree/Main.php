@@ -14,6 +14,10 @@ for ($i = 0; $i < count($nums); $i++) {
     $bst->add($nums[$i]);
 }
 
-$bst->preOrder();
-echo "\n";
-echo $bst;
+//前序遍历
+//$bst->preOrder();
+//echo "\n";
+//echo $bst;
+
+//中序遍历
+$bst->inOrder();
