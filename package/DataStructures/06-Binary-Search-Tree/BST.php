@@ -6,8 +6,7 @@
  * Time: 10:28 PM
  */
 require_once "./Node.php";
-require_once "../02-Arrays/TestArray.php";
-require_once "../03-Stacks-and-Queues/Stack/ArrayStack.php";
+require_once __DIR__."/../03-Stacks-and-Queues/Stack/ArrayStack.php";
 
 class BST
 {
