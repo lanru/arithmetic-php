@@ -72,6 +72,20 @@ class BST
         $this->preOrder1($this->root);
     }
 
+    public function postOrder()
+    {
+        $this->postOrder1($this->root);
+    }
+
+    private function postOrder1(?Node $node)
+    {
+        if ($node == null)
+            return;
+        $this->postOrder1($node->left);
+        $this->postOrder1($node->right);
+        echo $node->e . "\n";
+    }
+
     public function inOrder()
     {
         $this->inOrder1($this->root);

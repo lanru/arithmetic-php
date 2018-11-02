@@ -20,4 +20,7 @@ for ($i = 0; $i < count($nums); $i++) {
 //echo $bst;
 
 //中序遍历
-$bst->inOrder();
+//$bst->inOrder();
+
+//后续遍历
+$bst->postOrder();
