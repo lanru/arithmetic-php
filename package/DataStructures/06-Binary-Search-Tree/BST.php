@@ -174,4 +174,36 @@ class BST
         }
         return $res;
     }
+
+    public function minimum()
+    {
+        if ($this->size == 0) {
+            throw  new Exception("BST is empty");
+        }
+        return $this->minimum1($this->root)->e;
+    }
+
+    private function minimum1(?BSTNode $node):?BSTNode
+    {
+        if ($node->left == null) {
+            return $node;
+        }
+        return $this->minimum1($node->left);
+    }
+
+    public function maxmum()
+    {
+        if ($this->size == 0) {
+            throw  new Exception("BST is empty");
+        }
+        return $this->maxmum1($this->root)->e;
+    }
+
+    private function maxmum1(?BSTNode $node):?BSTNode
+    {
+        if ($node->right == null) {
+            return $node;
+        }
+        return $this->maxmum1($node->right);
+    }
 }

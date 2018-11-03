@@ -33,4 +33,7 @@ for ($i = 0; $i < count($nums); $i++) {
 //非递归前序遍历
 //$bst->preOrderNR();
 //层序遍历
-$bst->levelOrder();
+//$bst->levelOrder();
+//最小元素
+$min = $bst->minimum();
+echo $min;
