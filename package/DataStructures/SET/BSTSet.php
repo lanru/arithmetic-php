@@ -6,6 +6,7 @@
  * Time: 8:45 PM
  */
 require_once __DIR__ . "/../06-Binary-Search-Tree/BST.php";
+require_once __DIR__ . "/Set.php";
 
 class BSTSet implements Set
 {

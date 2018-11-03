@@ -31,12 +31,12 @@ class BST
         return $this->size == 0;
     }
 
-    public function add(int $e)
+    public function add($e)
     {
         $this->root = $this->add1($this->root, $e);
     }
 
-    private function add1(?BSTNode $node, int $e)
+    private function add1(?BSTNode $node, $e)
     {
         if ($node == null) {
             $this->size++;
