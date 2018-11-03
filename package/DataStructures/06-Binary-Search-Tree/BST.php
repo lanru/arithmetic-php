@@ -180,7 +180,7 @@ class BST
         if ($this->size == 0) {
             throw  new Exception("BST is empty");
         }
-        return $this->minimum1($this->root)->e;
+        return $this->minimum1($this->root);
     }
 
     private function minimum1(?BSTNode $node):?BSTNode
@@ -245,5 +245,47 @@ class BST
         return $node;
     }
 
+    public function remove($e)
+    {
+        $this->root = $this->remove1($this->root, $e);
+    }
 
+    private function remove1(?BSTNode &$node, $e)
+    {
+        if ($node == null) {
+            return null;
+        }
+        if ($e < $node->e) {
+            $node->left = $this->remove1($node->left, $e);
+            return $node;
+        } elseif ($e > $node->e) {
+            $node->right = $this->remove1($node->right, $e);
+            return $node;
+        } else {
+            // 待删除节点的左子树为空的情况
+            if ($node->left == null) {
+                $rightNode = $node->right;
+                $node->right = null;
+                $this->size--;
+                return $rightNode;
+                // 待删除节点的右子树为空的情况
+            } elseif ($node->right == null) {
+                $leftNode = $node->left;
+                $node->left = null;
+                $this->size--;
+                return $leftNode;
+            } else // $e ==$node->e
+            {
+                // 待删除节点左右子树均不为空的情况
+                // 找到比待删除节点大的最小节点，即待删除节点右子树的最小节点
+                // 用这个节点替代删除节点的位置
+                $successor = $this->minimum($node->right);
+                $successor->right = $this->removeMin($node->right);
+                $successor->left = $node->left;
+                $node->left = $node->right = null;
+                $this->size--;
+                return $successor;
+            }
+        }
+    }
 }

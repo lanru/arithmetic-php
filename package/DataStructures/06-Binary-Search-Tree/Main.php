@@ -41,5 +41,8 @@ for ($i = 0; $i < count($nums); $i++) {
 //$bst->removeMin();
 //echo  $bst;
 //删除最大元素
-$bst->removeMax();
-echo  $bst;
+//$bst->removeMax();
+//echo  $bst;
+//删除其中一个节点
+$bst->remove(6);
+echo $bst;
