@@ -35,5 +35,11 @@ for ($i = 0; $i < count($nums); $i++) {
 //层序遍历
 //$bst->levelOrder();
 //最小元素
-$min = $bst->minimum();
-echo $min;
+//$min = $bst->minimum();
+//echo $min;
+//删除最小元素
+//$bst->removeMin();
+//echo  $bst;
+//删除最大元素
+$bst->removeMax();
+echo  $bst;

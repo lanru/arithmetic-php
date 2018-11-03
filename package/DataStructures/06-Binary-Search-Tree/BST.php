@@ -206,4 +206,44 @@ class BST
         }
         return $this->maxmum1($node->right);
     }
+
+    public function removeMin()
+    {
+        $ret = $this->minimum();
+        $this->root = $this->removeMin1($this->root);
+        return $ret;
+    }
+
+    private function removeMin1(?BSTNode $node)
+    {
+        if ($node->left == null) {
+            $rightNode = $node->right;
+            $node->right = null;
+            $this->size--;
+            return $rightNode;
+        }
+        $node->left = $this->removeMin1($node->left);
+        return $node;
+    }
+
+    public function removeMax()
+    {
+        $ret = $this->maxmum();
+        $this->root = $this->removeMax1($this->root);
+        return $ret;
+    }
+
+    private function removeMax1(?BSTNode $node)
+    {
+        if ($node->right == null) {
+            $leftNode = $node->left;
+            $node->left = null;
+            $this->size--;
+            return $leftNode;
+        }
+        $node->right = $this->removeMax1($node->right);
+        return $node;
+    }
+
+
 }
