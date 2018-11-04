@@ -16,7 +16,7 @@ class LinkedListMap implements Map
 
     public function __construct()
     {
-        $this->dummyHead = new Node();
+        $this->dummyHead = new Node(null, null, null);
         $this->size = 0;
     }
 
