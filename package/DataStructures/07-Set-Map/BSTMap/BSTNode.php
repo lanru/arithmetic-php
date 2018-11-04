@@ -6,17 +6,19 @@
  * Time: 10:18 AM
  */
 
-class Node
+class BSTNode
 {
     public $key;
     public $value;
-    public $next;
+    public $left;
+    public $right;
 
-    public function __construct($key = null, $value = null, ?Node $next)
+    public function __construct($key = null, $value = null)
     {
         $this->key = $key;
         $this->value = $value;
-        $this->next = $next;
+        $this->left = null;
+        $this->right = null;
     }
 
     public function __toString()
