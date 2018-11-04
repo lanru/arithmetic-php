@@ -40,3 +40,5 @@ function uniqueMorseRepresentations(array $words)
 
 $size = uniqueMorseRepresentations(["sbc", "abc", "def"]);
 echo $size;
+
+
