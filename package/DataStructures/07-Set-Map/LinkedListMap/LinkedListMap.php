@@ -6,7 +6,7 @@
  * Time: 10:53 AM
  */
 
-require_once __DIR__ . "/Map.php";
+require_once __DIR__ . "/../Map.php";
 require_once __DIR__ . "/Node.php";
 
 class LinkedListMap implements Map

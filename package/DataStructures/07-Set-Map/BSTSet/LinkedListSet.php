@@ -5,8 +5,8 @@
  * Date: 2018/11/3
  * Time: 9:27 PM
  */
-require_once __DIR__ . "/Set.php";
-require_once __DIR__ . "/../04-Linked-List/LinkedList.php";
+require_once __DIR__ . "/../Set.php";
+require_once __DIR__ . "/../../04-Linked-List/LinkedList.php";
 
 class LinkedListSet implements Set
 {
