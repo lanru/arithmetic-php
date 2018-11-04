@@ -7,9 +7,9 @@
  */
 
 require_once __DIR__ . "/BSTSet.php";
+require_once __DIR__ . "/LinkedListSet.php";
 
-
-$bst = new BSTSet();
+$bst = new LinkedListSet();
 $words = ["a", "bb", "cc", "dd","bb"];
 
 foreach ($words as $item) {
