@@ -8,5 +8,17 @@
 
 interface Map
 {
+    function add($k, $v);
 
+    function remove($k);
+
+    function contains($K): bool;
+
+    function get($k);
+
+    function set($k, $v);
+
+    function getSize(): int;
+
+    function isEmpty(): bool;
 }
