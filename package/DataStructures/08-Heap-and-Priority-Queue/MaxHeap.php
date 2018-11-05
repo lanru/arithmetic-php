@@ -54,7 +54,7 @@ class MaxHeap
 
     private function siftUp(int $k)
     {
-        while ($k > 0 && $this->data[$this->parent($k)] < $this->data[$k]) {
+        while ($k > 0 && $this->data->get($this->parent($k)) < $this->data->get($k)) {
             $this->data->swap($k, $this->parent($k));
             $k = $this->parent($k);
         }
@@ -85,13 +85,11 @@ class MaxHeap
                 $j = $this->rightChild($k);
             }
             //此时data[j]是leftChild 和rightChild中最大值
-            if ($this->data->get($k) >= $this->data[$j]) {
+            if ($this->data->get($k) >= $this->data->get($j)) {
                 break;
             }
             $this->data->swap($k, $j);
             $k = $j;
         }
     }
-
-
 }
