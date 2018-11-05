@@ -76,7 +76,17 @@ class TestArray
         $this->size++;
     }
 
-    public function toString()
+    public function swap(int $i, int $j)
+    {
+        if ($i < 0 || $i >= $this->size || $j < 0 || $j >= $this->size) {
+            throw  new Exception("Index is illegal");
+        }
+        $tmp = $this->data[$i];
+        $this->data[$i] = $this->data[$j];
+        $this->data[$j] = $tmp;
+    }
+
+    public function __toString()
     {
         $capacity = $this->getCapacity();
         $result = "Array:size={$this->size},capacity={$capacity}\n";

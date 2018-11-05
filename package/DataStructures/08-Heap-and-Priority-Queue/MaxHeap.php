@@ -45,4 +45,34 @@ class MaxHeap
     {
         return $index * 2 + 2;
     }
+
+    public function add($e)
+    {
+        $this->data->addFirst($e);
+        $this->siftUp($this->data->getSize() - 1);
+    }
+
+    private function siftUp(int $k)
+    {
+        while ($k > 0 && $this->data[$this->parent($k)] < $this->data[$k]) {
+            $this->data->swap($k, $this->parent($k));
+            $k = $this->parent($k);
+        }
+    }
+
+    public function findMax()
+    {
+        if ($this->data->getSize() == 0) {
+            throw  new Exception("can not findMax when heap is empty;");
+        }
+        return $this->data->get(0);
+    }
+
+    public function extractMax()
+    {
+        $ret = $this->findMax();
+        
+    }
+
+
 }
