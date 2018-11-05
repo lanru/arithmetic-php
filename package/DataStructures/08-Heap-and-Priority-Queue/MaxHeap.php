@@ -71,7 +71,26 @@ class MaxHeap
     public function extractMax()
     {
         $ret = $this->findMax();
-        
+        $this->data->swap(0, $this->data->getSize() - 1);
+        $this->data->removeLast();
+        $this->siftDown(0);
+        return $ret;
+    }
+
+    private function siftDown(int $k)
+    {
+        while ($this->leftChild($k) < $this->data->getSize()) {
+            $j = $this->leftChild($k);
+            if ($j + 1 < $this->data->getSize() && $this->data->get($j + 1) > $this->data->get($j)) {
+                $j = $this->rightChild($k);
+            }
+            //此时data[j]是leftChild 和rightChild中最大值
+            if ($this->data->get($k) >= $this->data[$j]) {
+                break;
+            }
+            $this->data->swap($k, $j);
+            $k = $j;
+        }
     }
 
 
