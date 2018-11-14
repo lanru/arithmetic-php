@@ -101,6 +101,15 @@ class MaxHeap
         return $ret;
     }
 
+    public function MaxHeap1(Array $arr)
+    {
+        $this->data = new TestArray(10);
+        $this->data->TestArray1($arr);
+        for ($i = count($arr) - 1; $i >= 0; $i--) {
+            $this->siftDown($i);
+        }
+    }
+
     //将任意数组整理成堆的形状
     public function heapify()
     {

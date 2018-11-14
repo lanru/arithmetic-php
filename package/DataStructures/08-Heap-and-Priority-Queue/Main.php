@@ -25,6 +25,6 @@ for ($i = 1; $i < $n; $i++) {
         break;
     }
 }
-var_dump($arr);
+//var_dump($arr);
 echo "Test MaxHeap completed";
 

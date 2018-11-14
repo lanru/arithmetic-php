@@ -173,6 +173,15 @@ class TestArray
     {
         return $this->remove($this->size - 1);
     }
+
+    public function TestArray1(Array $arr)
+    {
+        $this->data = array_fill(0, count($arr), null);
+        for ($i = 0; $i < count($arr); $i++) {
+            $this->data[$i] = $arr[$i];
+        }
+        $this->size = count($arr);
+    }
 }
 
 class  Student
