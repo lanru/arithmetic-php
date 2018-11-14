@@ -20,10 +20,11 @@ function testHeap(Array $testData, bool $isHeapify)
             $maxHeap->add($i);
         }
     }
+    $arr = [];
     for ($i = 0; $i < count($testData); $i++) {
         $arr[] = $maxHeap->extractMax();
     }
-    for ($i = 0; $i < count($testData); $i++) {
+    for ($i = 1; $i < count($arr); $i++) {
         if ($arr[$i - 1] < $arr[$i]) {
             throw  new Exception("Error");
         }
@@ -35,7 +36,7 @@ function testHeap(Array $testData, bool $isHeapify)
 }
 
 //var_dump($arr);
-$n = 1000000;
+$n = 10000;
 $testData = [];
 for ($i = 0; $i < $n; $i++) {
     $rand = rand();
