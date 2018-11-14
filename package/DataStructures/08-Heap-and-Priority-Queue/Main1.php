@@ -43,7 +43,7 @@ for ($i = 0; $i < $n; $i++) {
     $testData[] = $rand;
 }
 $time1 = testHeap($testData, false);
-echo "without heapify:" . $time1;
+echo "without heapify:" . $time1 . "\n";
 $time2 = testHeap($testData, true);
 echo "without heapify:" . $time2;
 

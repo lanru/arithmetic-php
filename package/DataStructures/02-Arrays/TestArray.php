@@ -12,7 +12,7 @@ class TestArray
     protected $size;//最后一个有内容的位置
 
     // 构造函数，传入数组的容量capacity构造Array
-    function __construct($capacity)
+    function __construct(?int $capacity = 10)
     {
         $this->data = array_fill(0, $capacity, null);
         $this->size = 0;
