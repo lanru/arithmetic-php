@@ -16,14 +16,15 @@ for ($i = 0; $i < $n; $i++) {
 
 $arr = [];
 for ($i = 0; $i < $n; $i++) {
-    $arr = $maxHeap->extractMax();
+    $arr[] = $maxHeap->extractMax();
 }
 
 for ($i = 1; $i < $n; $i++) {
     if ($arr[$i - 1] < $arr[$i]) {
-        throw  new Exception("Error");
+        throw  new Exception("Error Occurence");
+        break;
     }
 }
-
+var_dump($arr);
 echo "Test MaxHeap completed";
 

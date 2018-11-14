@@ -48,7 +48,7 @@ class MaxHeap
 
     public function add($e)
     {
-        $this->data->addFirst($e);
+        $this->data->addLast($e);
         $this->siftUp($this->data->getSize() - 1);
     }
 
@@ -91,5 +91,19 @@ class MaxHeap
             $this->data->swap($k, $j);
             $k = $j;
         }
+    }
+
+    public function replace($e)
+    {
+        $ret = $this->findMax();
+        $this->data->set(0, $e);
+        $this->siftDown(0);
+        return $ret;
+    }
+
+    //将任意数组整理成堆的形状
+    public function heapify()
+    {
+
     }
 }
