@@ -11,7 +11,7 @@ class MaxHeap
 {
     private $data;
 
-    public function __construct(?int $capacity)
+    public function __construct(?int $capacity = 10)
     {
         $this->data = new TestArray($capacity);
     }
@@ -101,6 +101,8 @@ class MaxHeap
         return $ret;
     }
 
+
+    //heapify将任意数组整理成堆的形状
     public function MaxHeap1(Array $arr)
     {
         $this->data = new TestArray(10);
@@ -110,9 +112,4 @@ class MaxHeap
         }
     }
 
-    //将任意数组整理成堆的形状
-    public function heapify()
-    {
-
-    }
 }
